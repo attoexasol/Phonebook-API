@@ -1,0 +1,21 @@
+{
+  "name": "phonebook-api",
+  "version": "1.0.0",
+  "description": "Our Phonebook API offers developers a seamless solution for integrating comprehensive contact management functionality into their applications. With easy-to-use endpoints, developers can effortlessly add, update, delete, and search contacts. The API provides secure access to contact information, ensuring user privacy and data integrity. Whether you're building a social networking app, a CRM system, or any application requiring contact management features, our Phonebook API simplifies the process, saving you time and resources while delivering a reliable and efficient solution.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index",
+    "start": "node index"
+  },
+  "author": "Md Abdullah",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}
