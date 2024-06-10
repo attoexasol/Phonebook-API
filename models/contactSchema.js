@@ -1,35 +1,37 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const ContactInfoSchema = new Schema({
-  type: { type: String, enum: ['mobile', 'home', 'work'] },
-  number: String,
-});
-
-const ContactAddressSchema = new Schema({
-  type: { type: String, enum: ['home', 'work'] },
-  address: String,
-});
-
-// Define the Contact schema
 const ContactSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  phoneNumbers: [ContactInfoSchema],
-  emailAddresses: [ContactInfoSchema],
-  addresses: [ContactAddressSchema],
+  phoneNumbers: [{
+    type: { type: String, enum: ['mobile', 'home', 'work'], required: true },
+    number: { type: String, required: true , unique: true}
+  }],
+  emailAddresses: [{
+    type: { type: String, enum: ['personal', 'work'], required: true },
+    email: { type: String, required: true , unique: true},
+  }],
+  addresses: [{
+    type: { type: String, enum: ['home', 'work'], required: true },
+    address: {
+      division: { type: String, required: true },
+      district: { type: String, required: true },
+      thana: { type: String, required: true },
+      union: { type: String, required: true }
+    }
+  }],
   birthdate: Date,
+  profile:  { type: String, required: true },
   category: { type: Schema.Types.ObjectId, ref: 'Category' },
   creationDate: { type: Date, default: Date.now },
-  lastUpdated: { type: Date, default: Date.now },
-}, {timestamps: true});
+  lastUpdated: { type: Date, default: Date.now }
+}, { timestamps: true });
 
-// Define the Category schema
 const CategorySchema = new Schema({
-  name: { type: String, required: true },
-},{timestamps: true});
+  name: { type: String, required: true }
+}, { timestamps: true });
 
-// Create models for Contact and Group using the defined schemas
 const Contact = mongoose.model('Contact', ContactSchema);
 const Category = mongoose.model('Category', CategorySchema);
 
