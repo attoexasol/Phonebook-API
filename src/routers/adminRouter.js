@@ -6,6 +6,8 @@
  */
 
 const express = require('express');
+const { handleAdminSignIn, handleAdminSignUp, handleCreatePhoneNumber, handleUpdatePhoneNumber, handleDeletePhoneNumber } = require('../controllers/adminController');
+const { handleGetPhoneNumber } = require('../controllers/userController');
 const adminRouter = express.Router();
 
 
@@ -19,3 +21,6 @@ adminRouter.get('/', handleGetPhoneNumber);
 adminRouter.post('/', handleCreatePhoneNumber);
 adminRouter.put('/', handleUpdatePhoneNumber);
 adminRouter.delete('/', handleDeletePhoneNumber);
+
+
+module.exports = adminRouter;

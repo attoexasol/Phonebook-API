@@ -6,7 +6,12 @@
  */
 
 const express = require('express');
+const { handleGetPhoneNumber } = require('../controllers/userController');
 const userRouter = express.Router();
 
 
 userRouter.get('/', handleGetPhoneNumber);
+
+
+
+module.exports = userRouter;
