@@ -29,7 +29,7 @@ const ContactSchema = new Schema({
 }, { timestamps: true });
 
 const CategorySchema = new Schema({
-  name: { type: String, required: true }
+  name: { type: String, required: true , unique: true}
 }, { timestamps: true });
 
 const Contact = mongoose.model('Contact', ContactSchema);
