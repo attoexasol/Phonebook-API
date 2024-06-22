@@ -22,7 +22,7 @@ const ContactSchema = new Schema({
     }
   }],
   birthdate: Date,
-  profile:  { type: String, required: true },
+  profile:  { type: String},
   category: { type: Schema.Types.ObjectId, ref: 'Category' },
   creationDate: { type: Date, default: Date.now },
   lastUpdated: { type: Date, default: Date.now }
