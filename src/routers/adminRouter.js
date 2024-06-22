@@ -6,7 +6,7 @@
  */
 
 const express = require('express');
-const { handleAdminSignIn, handleAdminSignUp, handleCreatePhoneNumber, handleUpdatePhoneNumber, handleDeletePhoneNumber, handleCreateCategory } = require('../controllers/adminController');
+const { handleAdminSignIn, handleAdminSignUp, handleCreatePhoneNumber, handleUpdatePhoneNumber, handleDeletePhoneNumber, handleCreateCategory, handleGetCategory } = require('../controllers/adminController');
 const { handleGetPhoneNumber } = require('../controllers/userController');
 const adminRouter = express.Router();
 
@@ -17,13 +17,14 @@ adminRouter.post('/signup', handleAdminSignUp);
 
 
 //Admin CRUD PhoneNumber:
-adminRouter.get('/', handleGetPhoneNumber);
-adminRouter.post('/', handleCreatePhoneNumber);
-adminRouter.put('/', handleUpdatePhoneNumber);
-adminRouter.delete('/', handleDeletePhoneNumber);
+adminRouter.get('/contact', handleGetPhoneNumber);
+adminRouter.post('/contact', handleCreatePhoneNumber);
+adminRouter.put('/contact', handleUpdatePhoneNumber);
+adminRouter.delete('/contact', handleDeletePhoneNumber);
 
 //Admin CRUD Category:
 adminRouter.post('/category', handleCreateCategory);
+adminRouter.get('/category', handleGetCategory);
 
 
 module.exports = adminRouter;
